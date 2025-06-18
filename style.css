@@ -1,12 +1,11 @@
-
-/* Reset & Base */
+/* Base Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Inter', sans-serif;
   background: #f9f9f9;
   color: #222;
   line-height: 1.6;
@@ -33,10 +32,6 @@ ul {
 }
 .navbar .logo {
   height: 40px;
-  transition: transform 0.3s;
-}
-.navbar .logo:hover {
-  transform: scale(1.05);
 }
 .navbar ul {
   display: flex;
@@ -44,16 +39,16 @@ ul {
 }
 .navbar ul li a {
   font-weight: 500;
-  transition: 0.2s;
+  transition: color 0.2s;
 }
 .navbar ul li a:hover {
   color: #0051a2;
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
   text-align: center;
-  padding: clamp(4rem, 10vw, 6rem) 1rem;
+  padding: 5rem 1rem;
   background: linear-gradient(to right, #007BFF, #00C6FF);
   color: white;
 }
@@ -76,20 +71,20 @@ ul {
   color: #007BFF;
   border-radius: 25px;
   font-weight: bold;
-  transition: 0.3s ease-in-out;
+  transition: 0.3s ease;
 }
 .hero .btn:hover {
   background: #e0e0e0;
 }
 
-/* Sections */
+/* Generic Sections */
 section {
   padding: 3rem 2rem;
   max-width: 960px;
   margin: auto;
 }
 section h2 {
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  font-size: 2rem;
   margin-bottom: 1rem;
   color: #007BFF;
 }
@@ -101,15 +96,16 @@ section h2 {
 .experience ul {
   margin-top: 0.5rem;
   padding-left: 1.2rem;
+  list-style-type: disc;
 }
 
 /* Skills */
-.skills .skill-list {
+.skill-list {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
-.skills .skill-list li {
+.skill-list li {
   background: #007BFF;
   color: white;
   padding: 0.5rem 1rem;
@@ -117,13 +113,21 @@ section h2 {
   font-size: 0.9rem;
 }
 
-/* Case Studies */
-.projects .case-study {
-  background: #ffffff;
-  border-left: 4px solid #007BFF;
+/* Case Studies Grid */
+.case-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+.case-card {
+  background: white;
   padding: 1rem;
-  margin-bottom: 1rem;
+  border-left: 4px solid #007BFF;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+.case-card:hover {
+  transform: translateY(-4px);
 }
 
 /* Contact */
@@ -135,18 +139,4 @@ section h2 {
 /* Footer */
 .footer {
   text-align: center;
-  padding: 1.5rem;
-  background: #f1f1f1;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-}
-
-/* Accessibility & UX */
-a:focus, .btn:focus {
-  outline: 2px solid #ffeb3b;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
+  padding: 
