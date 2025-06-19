@@ -1,10 +1,4 @@
-/* ========== RESET & THEME ROOT ========== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* ========== ROOT THEME ========== */
 :root {
   --bg: #f9f9f9;
   --text: #222;
@@ -13,43 +7,43 @@
   --highlight: #ffeb3b;
   --card: #ffffff;
   --shadow: rgba(0, 0, 0, 0.1);
-  --radius: 8px;
+  --radius: 10px;
   --speed: 0.3s;
 }
-
 body.dark-mode {
   --bg: #121212;
   --text: #f0f0f0;
   --accent: #66aaff;
   --accent-light: #3399ff;
   --highlight: #ffd166;
-  --card: #1e1e1e;
+  --card: #1f1f1f;
   --shadow: rgba(255, 255, 255, 0.05);
 }
 
-/* ========== BASE TYPOGRAPHY ========== */
+/* ========== RESET & BASE ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--bg);
+  background: var(--bg);
   color: var(--text);
   line-height: 1.6;
   scroll-behavior: smooth;
   transition: background var(--speed), color var(--speed);
 }
-
 a {
   color: var(--accent);
   text-decoration: none;
-  transition: color var(--speed);
 }
-
-a:hover {
-  text-decoration: underline;
-}
-
 ul {
-  list-style-type: none;
-  padding: 0;
+  list-style: none;
+}
+img {
+  max-width: 100%;
+  display: block;
 }
 
 /* ========== NAVBAR ========== */
@@ -62,40 +56,34 @@ ul {
   box-shadow: 0 2px 4px var(--shadow);
   position: sticky;
   top: 0;
-  z-index: 1000;
+  z-index: 999;
 }
-
-.logo {
-  height: 40px;
-}
-
 .navbar ul {
   display: flex;
   gap: 1.5rem;
 }
-
 .navbar a {
   font-weight: 600;
   color: var(--text);
 }
-
 .navbar a:hover {
   color: var(--accent);
 }
-
-/* ========== DARK MODE TOGGLE BUTTON ========== */
+.logo {
+  height: 40px;
+}
 .theme-toggle {
-  font-size: 1.2rem;
   background: transparent;
   border: none;
   cursor: pointer;
-  color: var(--accent);
+  font-size: 1.2rem;
   margin-left: 1rem;
-  transition: transform var(--speed);
+  color: var(--accent);
 }
-
-.theme-toggle:hover {
-  transform: rotate(20deg);
+.hamburger {
+  display: none;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
 /* ========== HERO SECTION ========== */
@@ -105,57 +93,133 @@ ul {
   background: linear-gradient(to right, var(--accent), var(--accent-light));
   color: white;
 }
-
 .profile-pic {
-  width: 160px;
-  height: 160px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   border: 4px solid white;
   margin-bottom: 1rem;
   object-fit: cover;
 }
-
 .hero h1 span {
   color: var(--highlight);
 }
-
 .typing {
+  font-weight: bold;
+  font-size: 1.2rem;
   display: block;
   margin-top: 0.5rem;
-  font-weight: bold;
-  font-size: 1.25rem;
 }
-
 .btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
   background: white;
   color: var(--accent);
+  padding: 0.75rem 1.5rem;
   border-radius: 25px;
   font-weight: bold;
-  transition: background var(--speed), transform var(--speed);
+  display: inline-block;
+  margin-top: 1rem;
+  transition: background var(--speed);
 }
-
 .btn:hover {
   background: #eee;
-  transform: scale(1.05);
 }
 
-/* ========== SECTION DEFAULTS ========== */
+/* ========== SECTIONS ========== */
 section {
   padding: 3rem 2rem;
   max-width: 960px;
   margin: auto;
 }
-
 section h2 {
   font-size: 2rem;
-  color: var(--accent);
   margin-bottom: 1rem;
+  color: var(--accent);
+}
+.job ul {
+  margin-top: 0.5rem;
+  padding-left: 1.5rem;
 }
 
-/* ========== FADE-IN INITIAL STATE ========== */
+/* ========== SKILLS ========== */
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.skill-list li {
+  background: var(--accent);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* ========== CASE STUDIES (FLIP CARD) ========== */
+.case-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.flip-card {
+  background: none;
+  width: 250px;
+  height: 180px;
+  perspective: 1000px;
+}
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+.flip-front, .flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: var(--card);
+  color: var(--text);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px var(--shadow);
+  padding: 1rem;
+}
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+/* ========== KPI STRIP ========== */
+.kpi-strip {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  background: var(--card);
+  padding: 2rem;
+  margin: 2rem auto;
+  border-radius: var(--radius);
+  box-shadow: 0 2px 6px var(--shadow);
+}
+.kpi-item {
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #f1f1f1;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+/* ========== ANIMATIONS ========== */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
@@ -165,182 +229,24 @@ section h2 {
   transform: translateY(0) !important;
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
-/* ========== EXPERIENCE SECTION ========== */
-.job {
-  margin-bottom: 2rem;
-}
 
-.job ul {
-  margin-top: 0.5rem;
-  padding-left: 1.2rem;
-  list-style-type: disc;
-}
-
-/* ========== SKILLS SECTION ========== */
-.skill-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.skill-list li {
-  background: var(--accent);
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  transition: background var(--speed);
-}
-
-.skill-list li:hover {
-  background: var(--accent-light);
-}
-.kpi-strip {
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  flex-wrap: wrap;
-  gap: 2rem;
-  background: var(--card);
-  padding: 2rem;
-  margin: 2rem auto;
-  max
-
-/* ========== CASE STUDIES / PROJECTS ========== */
-.case-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1rem;
-}
-
-.flip-card {
-  perspective: 1000px;
-}
-
-.flip-inner {
-  position: relative;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  height: 100%;
-  min-height: 160px;
-}
-
-.flip-card:hover .flip-inner {
-  transform: rotateY(180deg);
-}
-
-.flip-front,
-.flip-back {
-  background: var(--card);
-  padding: 1rem;
-  border-left: 4px solid var(--accent);
-  box-shadow: 0 2px 6px var(--shadow);
-  border-radius: var(--radius);
-  backface-visibility: hidden;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-.flip-front {
-  z-index: 2;
-}
-
-.flip-back {
-  transform: rotateY(180deg);
-}
-
-/* ========== CONTACT SECTION ========== */
-.contact a {
-  color: var(--accent);
-  font-weight: bold;
-}
-
-.contact a:hover {
-  text-decoration: underline;
-}
-
-/* ========== FOOTER ========== */
-.footer {
-  text-align: center;
-  padding: 1.5rem;
-  background: var(--card);
-  font-size: 0.9rem;
-  color: var(--text);
-  border-top: 1px solid #ccc;
-}
-
-/* ========== BACK TO TOP BUTTON ========== */
-.back-to-top {
-  position: fixed;
-  bottom: 25px;
-  right: 20px;
-  background: var(--accent);
-  color: white;
-  border-radius: 50%;
-  font-size: 1.25rem;
-  padding: 0.5rem 0.75rem;
-  text-align: center;
-  text-decoration: none;
-  transition: background var(--speed);
-  box-shadow: 0 2px 6px var(--shadow);
-/* === Back to Top Button === */
-.back-to-top {
-  position: fixed;
-  bottom: 25px;
-  right: 20px;
-  background: var(--accent);
-  color: white;
-  /* ... */
-}
-
-/* === Floating Quote Button & Toast === */
-.floating-quote {
-  position: fixed;
-  bottom: 95px;
-  right: 20px;
-  background: var(--accent);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 0.75rem;
-  font-size: 1.2rem;
-  cursor: pointer;
-  box-shadow: 0 2px 6px var(--shadow);
-  z-index: 999;
-}
-
-.toast {
-  position: fixed;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: var(--card);
-  color: var(--text);
-  padding: 0.8rem 1.2rem;
-  border-radius: var(--radius);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-
-.toast.show {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-
-
-.back-to-top:hover {
-  background: var(--accent-light);
-}
-
-/* ========== RESPONSIVE STYLING ========== */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
   .navbar ul {
+    display: none;
     flex-direction: column;
-    gap: 1rem;
+    background: var(--card);
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: 0 2px 6px var(--shadow);
   }
-
-  section
+  .navbar ul.open {
+    display: flex;
+  }
+  .hamburger {
+    display: block;
+  }
+}
