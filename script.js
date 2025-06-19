@@ -2,20 +2,15 @@
 const themeToggle = document.getElementById('theme-toggle');
 const body = document.body;
 
-// Load saved theme from localStorage
+// Apply saved theme
 if (localStorage.getItem('theme') === 'dark') {
   body.classList.add('dark-mode');
 }
 
+// Toggle and save preference
 themeToggle.addEventListener('click', () => {
   body.classList.toggle('dark-mode');
-
-  // Save theme preference
-  if (body.classList.contains('dark-mode')) {
-    localStorage.setItem('theme', 'dark');
-  } else {
-    localStorage.setItem('theme', 'light');
-  }
+  localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
 });
 
 // ========== FADE-IN ON SCROLL ==========
@@ -26,7 +21,7 @@ const appearOptions = {
   rootMargin: '0px 0px -50px 0px'
 };
 
-const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
     entry.target.classList.add('appear');
@@ -34,19 +29,40 @@ const appearOnScroll = new IntersectionObserver(function(entries, observer) {
   });
 }, appearOptions);
 
-faders.forEach(fader => {
-  appearOnScroll.observe(fader);
-});
+faders.forEach(fader => appearOnScroll.observe(fader));
 
-// Optional: Toast Notifications
-// function showToast(message) {
-//   const toast = document.createElement('div');
-//   toast.className = 'toast';
-//   toast.textContent = message;
-//   document.body.appendChild(toast);
-//   setTimeout(() => toast.classList.add('show'), 100);
-//   setTimeout(() => {
-//     toast.classList.remove('show');
-//     setTimeout(() => toast.remove(), 500);
-//   }, 3000);
-// }
+// ========== TYPING TEXT EFFECT ==========
+const typingText = document.getElementById('typing-text');
+const phrases = [
+  'Product Leader',
+  'Data-Driven Thinker',
+  'Agile Champion',
+  'Customer-Centric Builder'
+];
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function type() {
+  const currentPhrase = phrases[phraseIndex];
+  typingText.textContent = currentPhrase.substring(0, charIndex);
+
+  if (!isDeleting && charIndex < currentPhrase.length) {
+    charIndex++;
+    setTimeout(type, 100);
+  } else if (isDeleting && charIndex > 0) {
+    charIndex--;
+    setTimeout(type, 50);
+  } else {
+    isDeleting = !isDeleting;
+    if (!isDeleting) phraseIndex = (phraseIndex + 1) % phrases.length;
+    setTimeout(type, 800);
+  }
+}
+
+type();
+
+// ========== MOBILE NAV TOGGLE ==========
+function toggleMenu() {
+  document.querySelector('nav ul').classList.toggle('open');
+}
