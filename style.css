@@ -195,6 +195,16 @@ section h2 {
 .skill-list li:hover {
   background: var(--accent-light);
 }
+.kpi-strip {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background: var(--card);
+  padding: 2rem;
+  margin: 2rem auto;
+  max
 
 /* ========== CASE STUDIES / PROJECTS ========== */
 .case-grid {
