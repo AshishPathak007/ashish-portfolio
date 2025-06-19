@@ -5,13 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Ashish Pathak | Senior Product Manager Portfolio" />
   <title>Ashish Pathak - Senior Product Manager</title>
-  <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
   <header class="navbar">
     <img src="assets/logo.png" alt="Ashish Pathak Logo" class="logo" />
+    <div class="hamburger" onclick="toggleMenu()">☰</div>
     <nav>
       <ul>
         <li><a href="#about">About</a></li>
@@ -26,8 +26,7 @@
 
   <section class="hero fade-in">
     <img src="assets/profile.jpg" alt="Ashish Pathak" class="profile-pic" />
-    <h1>
-      Hi, I’m <span>Ashish Pathak</span><br />
+    <h1>Hi, I’m <span>Ashish Pathak</span><br />
       <span class="typing" id="typing-text"></span>
     </h1>
     <p>🚀 Driving digital experiences across IIoT, Cloud, and Data platforms</p>
@@ -39,14 +38,12 @@
     <p>I’m a strategic product manager with 12+ years of experience delivering business impact through digital product innovation across telecom, IIoT, cloud, and analytics. I drive product journeys using Agile, SAFe, and a data-informed mindset.</p>
   </section>
 
-<section class="metrics fade-in">
-  <h2>📊 Impact Metrics</h2>
-</section> 
   <section class="kpi-strip fade-in">
-  <div class="kpi-item">📈 <strong>35%</strong><br>Adoption Growth</div>
-  <div class="kpi-item">🔍 <strong>30%</strong><br>Data Quality Uplift</div>
-  <div class="kpi-item">🧠 <strong>12+</strong><br>Years in Product</div>
-</section>
+    <div class="kpi-item">📈 <strong>35%</strong><br>Adoption Growth</div>
+    <div class="kpi-item">🔍 <strong>30%</strong><br>Data Quality Uplift</div>
+    <div class="kpi-item">🧠 <strong>12+</strong><br>Years in Product</div>
+  </section>
+
   <section id="experience" class="fade-in">
     <h2>💼 Professional Experience</h2>
     <div class="job">
@@ -119,7 +116,6 @@
   </footer>
 
   <a href="#" class="back-to-top" aria-label="Back to top">↑</a>
-<button class="floating-quote" onclick="showToast('🚀 Great products solve invisible problems. I build for scale, not shortcuts.')">📣</button>
   <script src="script.js"></script>
 </body>
 </html>
