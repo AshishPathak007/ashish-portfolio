@@ -91,14 +91,17 @@ img {
 /* HERO SECTION FULL FIX */
 .hero {
   position: relative;
-  height: 100vh;
-  overflow: hidden;
-  background-color: #0d47a1; /* fallback background if particles fail */
+  min-height: 80vh;
+  padding: 4rem 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
+  background-color: #0d47a1;
   color: white;
+  overflow: hidden;
 }
+
 
 .particles-bg {
   position: absolute;
