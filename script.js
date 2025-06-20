@@ -1,6 +1,10 @@
+
+
+
+
 // ========== DARK MODE TOGGLE ==========
 const themeToggle = document.getElementById('theme-toggle');
-const body = document.body;
+const body = document.bodywindow.addEventListener("DOMContentLoaded", () => {
 
 // Apply saved theme
 if (localStorage.getItem('theme') === 'dark') {
@@ -111,3 +115,4 @@ if (kpiSection) {
 
   kpiObserver.observe(kpiSection);
 }
+});
