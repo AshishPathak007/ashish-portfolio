@@ -66,3 +66,18 @@ type();
 function toggleMenu() {
   document.querySelector('nav ul').classList.toggle('open');
 }
+// ========== PARTICLES BACKGROUND ==========
+particlesJS('particles-js', {
+  particles: {
+    number: { value: 60 },
+    color: { value: "#ffffff" },
+    shape: { type: "circle" },
+    opacity: { value: 0.5 },
+    size: { value: 3 },
+    line_linked: { enable: true, color: "#ffffff", opacity: 0.3 },
+    move: { speed: 2 }
+  }
+});
+
+// ========== SCROLL ANIMATION INIT ==========
+AOS.init({ duration: 1000, once: true });
