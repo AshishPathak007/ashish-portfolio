@@ -8,6 +8,12 @@
     <link rel="icon" href="favicon.ico">
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <!-- Typing & Scroll -->
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/countup.js@2.0.7/dist/countUp.umd.js"></script>
+
 </head>
 <body>
   <header class="navbar">
@@ -25,14 +31,16 @@
     <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌓</button>
   </header>
 
-  <section class="hero fade-in">
+ <section id="hero" class="hero">
+  <div id="particles-js" class="particles-bg"></div>
+  <div class="hero-content">
     <img src="assets/profile.jpg" alt="Ashish Pathak" class="profile-pic" />
-    <h1>Hi, I’m <span>Ashish Pathak</span><br />
-      <span class="typing" id="typing-text"></span>
-    </h1>
-    <p>🚀 Driving digital experiences across IIoT, Cloud, and Data platforms</p>
-    <a href="assets/Ashish Pathak Resume.pdf" class="btn" download>📄 Download Resume</a>
-  </section>
+    <h1 data-aos="fade-up">Hi, I’m <span>Ashish Pathak</span></h1>
+    <h2 class="typing" id="typing-text" data-aos="fade-up" data-aos-delay="100"></h2>
+    <a href="assets/Ashish Pathak Resume.pdf" class="btn" data-aos="fade-up" data-aos-delay="300">📄 Download Resume</a>
+  </div>
+</section>
+
 
   <section id="about" class="fade-in">
     <h2>👤 About Me</h2>
