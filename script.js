@@ -35,8 +35,8 @@ faders.forEach(fader => appearOnScroll.observe(fader));
 const typingText = document.getElementById('typing-text');
 const phrases = [
   'Product Leader',
-  'Data-Driven Thinker',
   'Agile Champion',
+  'Data-Driven Thinker',
   'Customer-Centric Builder'
 ];
 let phraseIndex = 0;
@@ -52,7 +52,7 @@ function type() {
     setTimeout(type, 100);
   } else if (isDeleting && charIndex > 0) {
     charIndex--;
-    setTimeout(type, 50);
+    setTimeout(type, 60);
   } else {
     isDeleting = !isDeleting;
     if (!isDeleting) phraseIndex = (phraseIndex + 1) % phrases.length;
@@ -61,6 +61,7 @@ function type() {
 }
 
 type();
+
 
 // ========== MOBILE NAV TOGGLE ==========
 function toggleMenu() {
