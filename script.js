@@ -11,23 +11,6 @@ themeToggle.addEventListener('click', () => {
   localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
 });
 
-// ========== FADE-IN ON SCROLL ==========
-const faders = document.querySelectorAll('.fade-in');
-const appearOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -50px 0px'
-};
-
-const appearOnScroll = new IntersectionObserver((entries, observer) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    entry.target.classList.add('appear');
-    observer.unobserve(entry.target);
-  });
-}, appearOptions);
-
-faders.forEach(fader => appearOnScroll.observe(fader));
-
 // ========== TYPING TEXT EFFECT ==========
 const typingText = document.getElementById('typing-text');
 const phrases = ['Product Leader', 'Agile Champion', 'Strategic Thinker'];
@@ -53,6 +36,23 @@ function type() {
 }
 type();
 
+// ========== FADE-IN ON SCROLL ==========
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const appearOnScroll = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    entry.target.classList.add('appear');
+    observer.unobserve(entry.target);
+  });
+}, appearOptions);
+
+faders.forEach(fader => appearOnScroll.observe(fader));
+
 // ========== PARTICLES BACKGROUND ==========
 particlesJS('particles-js', {
   particles: {
@@ -66,12 +66,7 @@ particlesJS('particles-js', {
   }
 });
 
-// ========== TOGGLE MOBILE NAV ==========
-function toggleMenu() {
-  document.querySelector('nav ul').classList.toggle('open');
-}
-
-// ========== KPI COUNTUP (WORKING WITH CDNS) ==========
+// ========== KPI ANIMATIONS (CountUp.js) ==========
 function animateKPIs() {
   const kpi1 = new CountUp('kpi1', 35, { duration: 2 });
   const kpi2 = new CountUp('kpi2', 30, { duration: 2 });
@@ -83,7 +78,7 @@ function animateKPIs() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const kpiSection = document.querySelector('.impact-section');
+  const kpiSection = document.querySelector('.kpi-strip');
   if (kpiSection) {
     const observer = new IntersectionObserver(entries => {
       if (entries[0].isIntersecting) {
