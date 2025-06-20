@@ -76,7 +76,7 @@ particlesJS('particles-js', {
   }
 });
 
-// ========== KPI ANIMATIONS (CountUp.js from cdnjs) ==========
+// ========== KPI ANIMATIONS (CountUp.js) ==========
 function animateKPIs() {
   const options = { duration: 2 };
 
@@ -89,17 +89,22 @@ function animateKPIs() {
   if (!kpi3.error) kpi3.start();
 }
 
-const kpiSection = document.querySelector('.impact-section');
-if (kpiSection) {
-  const kpiObserver = new IntersectionObserver((entries) => {
-    if (entries[0].isIntersecting) {
-      animateKPIs();
-      kpiObserver.disconnect();
-    }
-  }, { threshold: 0.5 });
+document.addEventListener('DOMContentLoaded', () => {
+  const kpiSection = document.querySelector('.impact-section');
+  if (kpiSection) {
+    const observer = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) {
+        animateKPIs();
+        observer.disconnect();
+      }
+    }, { threshold: 0.5 });
 
-  kpiObserver.observe(kpiSection);
-}
+    observer.observe(kpiSection);
+  }
+});
+
+
+
 // ========== KPI ANIMATIONS (Safe CountUp Setup) ==========
 if (window.CountUp && window.CountUp.CountUp) {
   const CountUpSafe = window.CountUp.CountUp;
