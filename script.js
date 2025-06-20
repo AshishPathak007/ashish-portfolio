@@ -30,12 +30,7 @@ faders.forEach(fader => appearOnScroll.observe(fader));
 
 // ========== TYPING TEXT EFFECT ==========
 const typingText = document.getElementById('typing-text');
-const phrases = [
-  'Product Leader',
-  'Agile Champion',
-  'Customer-Centric Thinker',
-  'Strategic Builder'
-];
+const phrases = ['Product Leader', 'Agile Champion', 'Strategic Thinker'];
 let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
@@ -58,11 +53,6 @@ function type() {
 }
 type();
 
-// ========== TOGGLE MOBILE NAV ==========
-function toggleMenu() {
-  document.querySelector('nav ul').classList.toggle('open');
-}
-
 // ========== PARTICLES BACKGROUND ==========
 particlesJS('particles-js', {
   particles: {
@@ -76,13 +66,16 @@ particlesJS('particles-js', {
   }
 });
 
-// ========== KPI ANIMATIONS (CountUp.js) ==========
-function animateKPIs() {
-  const options = { duration: 2 };
+// ========== TOGGLE MOBILE NAV ==========
+function toggleMenu() {
+  document.querySelector('nav ul').classList.toggle('open');
+}
 
-  const kpi1 = new CountUp('kpi1', 35, options);
-  const kpi2 = new CountUp('kpi2', 30, options);
-  const kpi3 = new CountUp('kpi3', 12, options);
+// ========== KPI COUNTUP (WORKING WITH CDNS) ==========
+function animateKPIs() {
+  const kpi1 = new CountUp('kpi1', 35, { duration: 2 });
+  const kpi2 = new CountUp('kpi2', 30, { duration: 2 });
+  const kpi3 = new CountUp('kpi3', 12, { duration: 2 });
 
   if (!kpi1.error) kpi1.start();
   if (!kpi2.error) kpi2.start();
@@ -102,36 +95,3 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(kpiSection);
   }
 });
-
-
-
-// ========== KPI ANIMATIONS (Safe CountUp Setup) ==========
-if (window.CountUp && window.CountUp.CountUp) {
-  const CountUpSafe = window.CountUp.CountUp;
-
-  function animateKPIs() {
-    const options = { duration: 2 };
-
-    const kpi1 = new CountUpSafe('kpi1', 35, options);
-    const kpi2 = new CountUpSafe('kpi2', 30, options);
-    const kpi3 = new CountUpSafe('kpi3', 12, options);
-
-    if (!kpi1.error) kpi1.start();
-    if (!kpi2.error) kpi2.start();
-    if (!kpi3.error) kpi3.start();
-  }
-
-  const kpiSection = document.querySelector('.impact-section');
-  if (kpiSection) {
-    const kpiObserver = new IntersectionObserver((entries) => {
-      if (entries[0].isIntersecting) {
-        animateKPIs();
-        kpiObserver.disconnect();
-      }
-    }, { threshold: 0.5 });
-
-    kpiObserver.observe(kpiSection);
-  }
-} else {
-  console.warn("⚠️ CountUp.js library not available. Skipping KPI animation.");
-}
