@@ -1,152 +1,77 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Ashish Pathak | Senior Product Manager Portfolio" />
-  <title>Ashish Pathak - Senior Product Manager</title>
-    <link rel="icon" href="favicon.ico">
+  <title>Ashish Pathak - Portfolio</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
-  <!-- Typing & Scroll -->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.7/countUp.min.js"></script>
-
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.7/countUp.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
 </head>
 <body>
   <header class="navbar">
-    <img src="assets/logo.png" alt="Ashish Pathak Logo" class="logo" />
-    <div class="hamburger" onclick="toggleMenu()">☰</div>
+    <h1 class="logo">Ashish Pathak</h1>
     <nav>
       <ul>
         <li><a href="#about">About</a></li>
+        <li><a href="#impact">Impact</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Case Studies</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌓</button>
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌓</button>
   </header>
 
-<section id="hero" class="hero">
-  <div id="particles-js" class="particles-bg"></div>
-  <div class="hero-content">
-    <img src="assets/profile.jpg" alt="Ashish Pathak" class="profile-pic" />
-    <h1 data-aos="fade-up">Hi, I’m <span>Ashish Pathak</span></h1>
-    <h2 class="typing" id="typing-text" data-aos="fade-up" data-aos-delay="100"></h2>
-    <a href="assets/Ashish Pathak Resume.pdf" class="btn" data-aos="fade-up" data-aos-delay="300">📄 Download Resume</a>
-  </div>
-</section>
-
-
-  <section id="about" class="fade-in">
-    <h2>👤 About Me</h2>
-    <p>I’m a strategic product manager with 12+ years of experience delivering business impact through digital product innovation across telecom, IIoT, cloud, and analytics. I drive product journeys using Agile, SAFe, and a data-informed mindset.</p>
-  </section>
-
- <section class="fade-in impact-section">
-  <h2>🚀 Impact Highlights</h2>
-  <div class="kpi-strip">
-    <div class="kpi-item">
-      <span class="kpi-number" id="kpi1">0</span>
-      <p>Adoption Growth</p>
-    </div>
-    <div class="kpi-item">
-      <span class="kpi-number" id="kpi2">0</span>
-      <p>Data Quality Uplift</p>
-    </div>
-    <div class="kpi-item">
-      <span class="kpi-number" id="kpi3">0</span>
-      <p>Years in Product</p>
-    </div>
-  </div>
-</section>
-
-  
-  <section id="experience" class="fade-in">
-    <h2>💼 Professional Experience</h2>
-    <div class="job">
-      <h3>Product Manager – Adani Enterprises Ltd.</h3>
-      <p><em>Dec 2022 – Present · Ahmedabad</em></p>
-      <ul>
-        <li>🧭 Defined roadmap for Exception Management System</li>
-        <li>🔐 Led OPC UA edge appliance integration</li>
-        <li>📈 Improved adoption by 35% and data quality by 30%</li>
-      </ul>
-    </div>
-    <div class="job">
-      <h3>Scrum Master – S&P Global</h3>
-      <p><em>Nov 2021 – Dec 2022</em></p>
-      <ul>
-        <li>⚡ Accelerated delivery cycles by 20% across 12 agile teams</li>
-        <li>📊 Enhanced transparency via backlog analytics</li>
-      </ul>
+  <section id="hero">
+    <div id="particles-js"></div>
+    <div class="hero-content">
+      <img src="assets/profile.jpg" alt="Ashish Pathak" class="profile-pic" />
+      <h2>Hi, I’m <span>Ashish Pathak</span></h2>
+      <h3 id="typing-text" class="typing"></h3>
+      <a href="assets/Ashish Pathak Resume.pdf" class="btn">Download Resume</a>
     </div>
   </section>
 
-  <section id="skills" class="fade-in">
-    <h2>🧠 Core Skills</h2>
-    <ul class="skill-list">
-      <li>Product Strategy</li>
-      <li>Agile / Scrum / SAFe</li>
-      <li>Roadmapping</li>
-      <li>Market Research</li>
-      <li>IIoT & Edge Appliances</li>
-      <li>Data Analysis</li>
+  <section id="about" class="section fade-in">
+    <h2>About Me</h2>
+    <p>I am a Senior Product Manager with experience in IIoT, cloud, and data platforms, passionate about driving product innovation and delivering business outcomes.</p>
+  </section>
+
+  <section id="impact" class="section fade-in">
+    <h2>Impact Highlights</h2>
+    <div class="kpi-strip">
+      <div class="kpi-item">
+        <span id="kpi1" class="kpi-number">0</span>
+        <p>Adoption Growth</p>
+      </div>
+      <div class="kpi-item">
+        <span id="kpi2" class="kpi-number">0</span>
+        <p>Data Quality Uplift</p>
+      </div>
+      <div class="kpi-item">
+        <span id="kpi3" class="kpi-number">0</span>
+        <p>Years in Product</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience" class="section fade-in">
+    <h2>Experience</h2>
+    <ul class="timeline">
+      <li><strong>Product Manager</strong> - Adani Enterprises (2022 - Present)</li>
+      <li><strong>Scrum Master</strong> - S&P Global (2021 - 2022)</li>
     </ul>
   </section>
 
-  <section id="projects" class="fade-in">
-    <h2>📚 Case Studies</h2>
-    <div class="case-grid">
-      <div class="flip-card">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <h3>📌 Exception Management – Adani</h3>
-            <p>35% adoption ↑ | 30% data quality ↑</p>
-          </div>
-          <div class="flip-back">
-            <p>Built a self-service analytics tool across business units to track operational anomalies.</p>
-          </div>
-        </div>
-      </div>
-      <div class="flip-card">
-        <div class="flip-inner">
-          <div class="flip-front">
-            <h3>📌 Agile Delivery – S&P Global</h3>
-            <p>20% cycle time ↓ | Portfolio visibility ↑</p>
-          </div>
-          <div class="flip-back">
-            <p>Orchestrated delivery across 12 agile teams. Improved predictability, forecasting, and outcome tracking.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="fade-in">
-    <h2>📬 Contact</h2>
+  <section id="contact" class="section fade-in">
+    <h2>Contact</h2>
     <p>Email: <a href="mailto:ashishpathak.er@gmail.com">ashishpathak.er@gmail.com</a></p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/ashishpathak001/" target="_blank">ashishpathak</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/ashishpathak001" target="_blank">ashishpathak001</a></p>
   </section>
 
-  <footer class="footer">
-    <p>© 2025 Ashish Pathak | Built with ❤️</p>
-  </footer>
-
-  <a href="#" class="back-to-top" aria-label="Back to top">↑</a>
-  <!-- COUNTUP LIBRARY FIRST -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.0.7/countUp.min.js"></script>
-
-<!-- THEN YOUR OWN SCRIPT -->
-<script src="script.js"></script>
+  <footer class="footer">© 2025 Ashish Pathak | Built with ❤️</footer>
+  <script src="script.js"></script>
 </body>
-</html>
-
-</html>
-
 </html>
