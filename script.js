@@ -100,3 +100,33 @@ if (kpiSection) {
 
   kpiObserver.observe(kpiSection);
 }
+// ========== KPI ANIMATIONS (Safe CountUp Setup) ==========
+if (window.CountUp && window.CountUp.CountUp) {
+  const CountUpSafe = window.CountUp.CountUp;
+
+  function animateKPIs() {
+    const options = { duration: 2 };
+
+    const kpi1 = new CountUpSafe('kpi1', 35, options);
+    const kpi2 = new CountUpSafe('kpi2', 30, options);
+    const kpi3 = new CountUpSafe('kpi3', 12, options);
+
+    if (!kpi1.error) kpi1.start();
+    if (!kpi2.error) kpi2.start();
+    if (!kpi3.error) kpi3.start();
+  }
+
+  const kpiSection = document.querySelector('.impact-section');
+  if (kpiSection) {
+    const kpiObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        animateKPIs();
+        kpiObserver.disconnect();
+      }
+    }, { threshold: 0.5 });
+
+    kpiObserver.observe(kpiSection);
+  }
+} else {
+  console.warn("⚠️ CountUp.js library not available. Skipping KPI animation.");
+}
