@@ -82,3 +82,23 @@ particlesJS('particles-js', {
 
 // ========== SCROLL ANIMATION INIT ==========
 AOS.init({ duration: 1000, once: true });
+
+// ========== KPI ANIMATIONS (CountUp.js) ==========
+const { CountUp } = window;
+
+function animateKPIs() {
+  const options = { duration: 2 };
+  new CountUp('kpi1', 35, options).start();
+  new CountUp('kpi2', 30, options).start();
+  new CountUp('kpi3', 12, options).start();
+}
+
+const kpiObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    animateKPIs();
+    kpiObserver.disconnect(); // Only trigger once
+  }
+}, { threshold: 0.5 });
+
+kpiObserver.observe(document.querySelector('.impact-section'));
+
