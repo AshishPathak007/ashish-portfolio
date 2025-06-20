@@ -1,17 +1,11 @@
-
-
-
-
 // ========== DARK MODE TOGGLE ==========
 const themeToggle = document.getElementById('theme-toggle');
-const body = document.bodywindow.addEventListener("DOMContentLoaded", () => {
+const body = document.body;
 
-// Apply saved theme
 if (localStorage.getItem('theme') === 'dark') {
   body.classList.add('dark-mode');
 }
 
-// Toggle and save preference
 themeToggle.addEventListener('click', () => {
   body.classList.toggle('dark-mode');
   localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
@@ -19,7 +13,6 @@ themeToggle.addEventListener('click', () => {
 
 // ========== FADE-IN ON SCROLL ==========
 const faders = document.querySelectorAll('.fade-in');
-
 const appearOptions = {
   threshold: 0.1,
   rootMargin: '0px 0px -50px 0px'
@@ -40,18 +33,18 @@ const typingText = document.getElementById('typing-text');
 const phrases = [
   'Product Leader',
   'Agile Champion',
-  'Data-Driven Thinker',
-  'Customer-Centric Builder'
+  'Customer-Centric Thinker',
+  'Strategic Builder'
 ];
 let phraseIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
 
 function type() {
-  const currentPhrase = phrases[phraseIndex];
-  typingText.textContent = currentPhrase.substring(0, charIndex);
+  const current = phrases[phraseIndex];
+  typingText.textContent = current.substring(0, charIndex);
 
-  if (!isDeleting && charIndex < currentPhrase.length) {
+  if (!isDeleting && charIndex < current.length) {
     charIndex++;
     setTimeout(type, 100);
   } else if (isDeleting && charIndex > 0) {
@@ -63,14 +56,13 @@ function type() {
     setTimeout(type, 800);
   }
 }
-
 type();
 
-
-// ========== MOBILE NAV TOGGLE ==========
+// ========== TOGGLE MOBILE NAV ==========
 function toggleMenu() {
   document.querySelector('nav ul').classList.toggle('open');
 }
+
 // ========== PARTICLES BACKGROUND ==========
 particlesJS('particles-js', {
   particles: {
@@ -84,13 +76,7 @@ particlesJS('particles-js', {
   }
 });
 
-// ========== SCROLL ANIMATION INIT ==========
-AOS.init({ duration: 1000, once: true });
-
-
-// ========== KPI ANIMATIONS (CountUp.js) ==========
-const CountUp = window.CountUp.CountUp;
-
+// ========== KPI ANIMATIONS (CountUp.js from cdnjs) ==========
 function animateKPIs() {
   const options = { duration: 2 };
 
@@ -103,7 +89,6 @@ function animateKPIs() {
   if (!kpi3.error) kpi3.start();
 }
 
-
 const kpiSection = document.querySelector('.impact-section');
 if (kpiSection) {
   const kpiObserver = new IntersectionObserver((entries) => {
@@ -115,4 +100,3 @@ if (kpiSection) {
 
   kpiObserver.observe(kpiSection);
 }
-});
