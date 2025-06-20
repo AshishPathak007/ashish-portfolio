@@ -89,6 +89,7 @@ const CountUp = window.CountUp.CountUp;
 
 function animateKPIs() {
   const options = { duration: 2 };
+
   const kpi1 = new CountUp('kpi1', 35, options);
   const kpi2 = new CountUp('kpi2', 30, options);
   const kpi3 = new CountUp('kpi3', 12, options);
@@ -97,6 +98,7 @@ function animateKPIs() {
   if (!kpi2.error) kpi2.start();
   if (!kpi3.error) kpi3.start();
 }
+
 
 const kpiSection = document.querySelector('.impact-section');
 if (kpiSection) {
