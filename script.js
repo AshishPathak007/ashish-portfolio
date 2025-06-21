@@ -1,3 +1,6 @@
+window.addEventListener('load', () => {
+
+
 // Enable CountUp from CDN
 const CountUp = window.CountUp.CountUp;
 
@@ -65,3 +68,4 @@ themeToggle.addEventListener("click", () => {
   body.classList.toggle("dark-mode");
   localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
 });
+  });
