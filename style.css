@@ -292,6 +292,45 @@ h2 {
   transform: scale(1.03);
 }
 
+/* Testimonials */
+.testimonial-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.testimonial-card {
+  background: #fff;
+  border-left: 4px solid var(--accent);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  font-style: italic;
+  position: relative;
+}
+
+.testimonial-card::before {
+  content: \"\\201C\";
+  font-size: 3rem;
+  position: absolute;
+  top: 0.3rem;
+  left: 1rem;
+  color: var(--accent);
+  opacity: 0.2;
+}
+
+.testimonial-card p {
+  margin: 0 0 0.5rem 0;
+}
+
+.author {
+  font-weight: 600;
+  font-size: 0.9rem;
+  display: block;
+  text-align: right;
+  color: #555;
+}
 
 
 /* Responsive */
