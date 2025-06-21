@@ -33,29 +33,6 @@ function type() {
 }
 type();
 
-// ========== KPI COUNT-UP EFFECT ==========
-function animateKPIs() {
-  const kpi1 = new CountUp("kpi1", 35);
-  const kpi2 = new CountUp("kpi2", 30);
-  const kpi3 = new CountUp("kpi3", 12);
-  kpi1.start();
-  kpi2.start();
-  kpi3.start();
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  const impactSection = document.querySelector("#impact");
-  if (impactSection) {
-    const observer = new IntersectionObserver((entries, obs) => {
-      if (entries[0].isIntersecting) {
-        animateKPIs();
-        obs.disconnect();
-      }
-    }, { threshold: 0.5 });
-
-    observer.observe(impactSection);
-  }
-});
 
 
 // ========== DARK MODE TOGGLE ==========
