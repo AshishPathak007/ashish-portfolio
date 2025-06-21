@@ -34,6 +34,18 @@ body {
   font-size: 1.2rem;
   font-weight: bold;
 }
+.logo {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.logo-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 0.5rem;
+}
 
 .navbar ul {
   list-style: none;
@@ -332,6 +344,20 @@ h2 {
   color: #555;
 }
 
+/* Footer */
+.footer {
+  background: #f2f2f2;
+  padding: 2rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.footer-content a {
+  color: var(--accent);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
 
 
 
