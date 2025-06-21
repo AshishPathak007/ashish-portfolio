@@ -1,5 +1,19 @@
 // script.js for Ashish Pathak Portfolio
 
+// Dark mode toggle
+const themeToggle = document.getElementById("theme-toggle");
+const body = document.body;
+
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark-mode");
+}
+
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+  localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
+});
+
+
 // ========== TYPING TEXT EFFECT ==========
 const typingText = document.getElementById("typing-text");
 const phrases = [
