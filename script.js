@@ -45,10 +45,9 @@ type();
 
 // ========== KPI COUNT-UP EFFECT ==========
 function animateKPIs() {
-  const kpi1 = new CountUp("kpi1", 35, { duration: 2 });
-  const kpi2 = new CountUp("kpi2", 30, { duration: 2 });
-  const kpi3 = new CountUp("kpi3", 12, { duration: 2 });
-
+  const kpi1 = new CountUp("kpi1", 35);
+  const kpi2 = new CountUp("kpi2", 30);
+  const kpi3 = new CountUp("kpi3", 12);
   if (!kpi1.error) kpi1.start();
   if (!kpi2.error) kpi2.start();
   if (!kpi3.error) kpi3.start();
@@ -56,7 +55,6 @@ function animateKPIs() {
 
 document.addEventListener("DOMContentLoaded", () => {
   const impactSection = document.querySelector("#impact");
-
   if (impactSection) {
     const observer = new IntersectionObserver((entries, obs) => {
       if (entries[0].isIntersecting) {
@@ -64,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
         obs.disconnect();
       }
     }, { threshold: 0.5 });
-
     observer.observe(impactSection);
   }
 });
+
