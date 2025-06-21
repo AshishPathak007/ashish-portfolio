@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <title>Content Manager</title>
-    
+
     <script>
       window.CMS_MANUAL_INIT = true;
     </script>
@@ -11,7 +11,11 @@
     <script src="https://unpkg.com/netlify-cms@2.10.192/dist/cms.js"></script>
 
     <script>
-      CMS.init({ config: "/config.yml" });
+      window.onload = function () {
+        CMS.init({
+          config: "/config.yml",
+        });
+      };
     </script>
   </head>
   <body>
