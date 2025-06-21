@@ -1,22 +1,20 @@
+/* style.css for Ashish Pathak Portfolio */
 
-/* Reset & Base */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --bg-light: #f9f9f9;
+  --text-color: #222;
+  --accent: #0073b1; /* LinkedIn Blue */
+  --highlight: #ffc107;
+  --white: #ffffff;
+  --font: 'Inter', sans-serif;
 }
+
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f9f9f9;
-  color: #222;
-  line-height: 1.6;
-}
-a {
-  color: #0066cc;
-  text-decoration: none;
-}
-ul {
-  list-style-type: none;
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg-light);
+  color: var(--text-color);
+  scroll-behavior: smooth;
 }
 
 /* Navbar */
@@ -24,129 +22,101 @@ ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
   padding: 1rem 2rem;
+  background: var(--white);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 .navbar .logo {
-  height: 40px;
-  transition: transform 0.3s;
-}
-.navbar .logo:hover {
-  transform: scale(1.05);
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 .navbar ul {
+  list-style: none;
   display: flex;
   gap: 1.5rem;
+  margin: 0;
+  padding: 0;
 }
-.navbar ul li a {
-  font-weight: 500;
-  transition: 0.2s;
-}
-.navbar ul li a:hover {
-  color: #0051a2;
+.navbar a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
 }
 
 /* Hero Section */
-.hero {
+#hero {
+  background: linear-gradient(135deg, #0073b1, #005582);
+  color: var(--white);
   text-align: center;
-  padding: clamp(4rem, 10vw, 6rem) 1rem;
-  background: linear-gradient(to right, #007BFF, #00C6FF);
-  color: white;
+  padding: 6rem 2rem;
+  position: relative;
 }
-.hero .profile-pic {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 4px solid white;
-  margin-bottom: 1rem;
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 0;
 }
-.hero h1 span {
-  color: #ffeb3b;
-}
-.hero .btn {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.75rem 1.5rem;
-  background: white;
-  color: #007BFF;
-  border-radius: 25px;
-  font-weight: bold;
-  transition: 0.3s ease-in-out;
-}
-.hero .btn:hover {
-  background: #e0e0e0;
-}
-
-/* Sections */
-section {
-  padding: 3rem 2rem;
-  max-width: 960px;
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
   margin: auto;
 }
-section h2 {
-  font-size: clamp(1.75rem, 4vw, 2.25rem);
+.profile-pic {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid var(--white);
   margin-bottom: 1rem;
-  color: #007BFF;
+}
+.highlight {
+  color: var(--highlight);
+}
+.typing {
+  font-size: 1.2rem;
+  font-weight: 500;
+  min-height: 30px;
+  color: var(--white);
+}
+.summary {
+  margin: 1rem 0;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--white);
+}
+.btn {
+  background: var(--white);
+  color: var(--accent);
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  display: inline-block;
+  transition: background 0.3s;
+}
+.btn:hover {
+  background: #e9e9e9;
 }
 
-/* Experience */
-.experience .job {
-  margin-bottom: 2rem;
-}
-.experience ul {
-  margin-top: 0.5rem;
-  padding-left: 1.2rem;
-}
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar ul {
+    flex-direction: column;
+    background: var(--white);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: none;
+  }
 
-/* Skills */
-.skills .skill-list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-.skills .skill-list li {
-  background: #007BFF;
-  color: white;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-size: 0.9rem;
-}
-
-/* Case Studies */
-.projects .case-study {
-  background: #ffffff;
-  border-left: 4px solid #007BFF;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-/* Contact */
-.contact a {
-  color: #007BFF;
-  font-weight: bold;
-}
-
-/* Footer */
-.footer {
-  text-align: center;
-  padding: 1.5rem;
-  background: #f1f1f1;
-  margin-top: 2rem;
-  font-size: 0.9rem;
-}
-
-/* Accessibility & UX */
-a:focus, .btn:focus {
-  outline: 2px solid #ffeb3b;
-}
-
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
+  .navbar ul.open {
+    display: flex;
+  }
 }
