@@ -196,28 +196,42 @@ h2 {
 }
 
 /* ========== KPI Styling ========== */
-.kpi-strip {
+/* Static Impact Cards */
+.impact-cards {
   display: flex;
-  justify-content: center;
   gap: 2rem;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 2rem;
 }
 
-.kpi-item {
+.impact-card {
   background: var(--white);
-  padding: 2rem;
+  border: 2px solid var(--accent);
+  padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  width: 220px;
   text-align: center;
-  width: 200px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
 }
 
-.kpi-number {
-  font-size: 2.5rem;
+.impact-card:hover {
+  transform: translateY(-6px);
+}
+
+.impact-icon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.impact-number {
+  font-size: 2rem;
   font-weight: bold;
   color: var(--accent);
+  margin-bottom: 0.25rem;
 }
+
 
 /* Experience Timeline */
 .timeline {
