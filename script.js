@@ -13,6 +13,9 @@ themeToggle.addEventListener("click", () => {
   localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
 });
 
+// Enable CountUp
+const CountUp = window.CountUp.CountUp;
+
 
 // ========== TYPING TEXT EFFECT ==========
 const typingText = document.getElementById("typing-text");
