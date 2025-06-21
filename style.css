@@ -364,6 +364,19 @@ h2 {
   color: #555;
 }
 
+/* Contact Section */
+#contact a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+#contact p {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+
+
 /* Footer */
 .footer {
   background: #f2f2f2;
