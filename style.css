@@ -61,6 +61,26 @@ body {
   font-weight: 600;
 }
 
+/* Dark Mode */
+.dark-mode {
+  background: #121212;
+  color: #f0f0f0;
+}
+
+.dark-mode .navbar,
+.dark-mode .footer {
+  background: #1e1e1e;
+}
+
+.dark-mode .project-card,
+.dark-mode .cert-card,
+.dark-mode .testimonial-card,
+.dark-mode .kpi-item {
+  background: #2c2c2c;
+  color: #f0f0f0;
+}
+
+
 /* Hero Section */
 #hero {
   background: linear-gradient(135deg, #0073b1, #005582);
