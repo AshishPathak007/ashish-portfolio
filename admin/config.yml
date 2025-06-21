@@ -1,6 +1,5 @@
 backend:
-  name: github
-  repo: AshishPathak007/ashish-portfolio
+  name: git-gateway
   branch: main
 
 media_folder: "uploads"
