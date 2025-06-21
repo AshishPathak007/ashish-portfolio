@@ -1,19 +1,23 @@
+// === ANIMATED COUNTER ===
+const counters = document.querySelectorAll('.counter');
+const speed = 200;
 
-// Typing effect
-const typingText = document.getElementById('typing-text');
-const phrases = ['Product Leader', 'Strategic Thinker', 'Agile Champion'];
-let phraseIndex = 0, charIndex = 0, isDeleting = false;
-function type() {
-  const current = phrases[phraseIndex];
-  typingText.textContent = current.substring(0, charIndex);
-  if (!isDeleting && charIndex < current.length) {
-    charIndex++; setTimeout(type, 100);
-  } else if (isDeleting && charIndex > 0) {
-    charIndex--; setTimeout(type, 60);
-  } else {
-    isDeleting = !isDeleting;
-    if (!isDeleting) phraseIndex = (phraseIndex + 1) % phrases.length;
-    setTimeout(type, 1000);
-  }
-}
-type();
+counters.forEach(counter => {
+  const update = () => {
+    const target = +counter.dataset.target;
+    const count = +counter.innerText;
+    const inc = target / speed;
+
+    if (count < target) {
+      counter.innerText = Math.ceil(count + inc);
+      requestAnimationFrame(update);
+    } else {
+      counter.innerText = target;
+    }
+  };
+  // Trigger when visible
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) update();
+  }, { threshold: 0.9 });
+  observer.observe(counter);
+});
