@@ -1,21 +1,5 @@
-// script.js for Ashish Pathak Portfolio
-
-// Dark mode toggle
-const themeToggle = document.getElementById("theme-toggle");
-const body = document.body;
-
-if (localStorage.getItem("theme") === "dark") {
-  body.classList.add("dark-mode");
-}
-
-themeToggle.addEventListener("click", () => {
-  body.classList.toggle("dark-mode");
-  localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
-});
-
-// Enable CountUp
+// Enable CountUp from CDN
 const CountUp = window.CountUp.CountUp;
-
 
 // ========== TYPING TEXT EFFECT ==========
 const typingText = document.getElementById("typing-text");
@@ -69,3 +53,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// ========== DARK MODE TOGGLE ==========
+const themeToggle = document.getElementById("theme-toggle");
+const body = document.body;
+
+if (localStorage.getItem("theme") === "dark") {
+  body.classList.add("dark-mode");
+}
+
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+  localStorage.setItem("theme", body.classList.contains("dark-mode") ? "dark" : "light");
+});
